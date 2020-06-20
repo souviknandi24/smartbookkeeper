@@ -14,11 +14,11 @@ class Vendor(models.Model):
         blank=True, validators=[MinValueValidator(100000), MaxValueValidator(999999)])
     phone_number = models.CharField(blank=True, max_length=20)
     email = models.CharField(blank=True, max_length=160)
-    bank_account_number = models.PositiveIntegerField(blank=True)
-    bank_account_name = models.CharField(blank=True, max_length=300)
-    bank_name = models.CharField(blank=True, max_length=200)
-    bank_branch_name = models.CharField(blank=True, max_length=200)
-    bank_ifs_code = models.CharField(blank=True, max_length=20)
+    bank_account_number = models.PositiveIntegerField(blank=True, null=True)
+    bank_account_name = models.CharField(blank=True, null=True, max_length=300)
+    bank_name = models.CharField(blank=True, null=True, max_length=200)
+    bank_branch_name = models.CharField(blank=True, null=True, max_length=200)
+    bank_ifs_code = models.CharField(blank=True, null=True, max_length=20)
     entity_type = models.CharField(null=False, max_length=20, choices=[(
         'manufacturer', 'MANUFACTURER'), ('buyer', 'BUYER'), ('firm', 'FIRM')], default='buyer')
 

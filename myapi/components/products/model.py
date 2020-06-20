@@ -5,9 +5,11 @@ from ..vendors.model import Vendor
 
 class Product(models.Model):
     name = models.CharField(null=False, max_length=100)
+    measuring_unit = models.CharField(
+        null=False, max_length=20, default='units')
     description = models.TextField(blank=True)
-    basic_rate = models.PositiveIntegerField(
-        blank=True, validators=[MinValueValidator(0)])
+    basic_rate = models.DecimalField(
+        max_digits=14, decimal_places=2, blank=True, validators=[MinValueValidator(0)])
     hsn_sac = models.CharField(blank=True, max_length=100)
     gst_percentage = models.PositiveIntegerField(
         blank=True, validators=[MinValueValidator(0), MaxValueValidator(100)])

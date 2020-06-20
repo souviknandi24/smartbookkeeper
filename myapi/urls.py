@@ -7,6 +7,8 @@ router = routers.DefaultRouter()
 router.register(r'vendors', views.VendorViewSet)
 router.register(r'products', views.ProductViewSet)
 router.register(r'sessions', views.SessionViewSet)
+router.register(r'invoices', views.InvoiceViewSet)
+router.register(r'invoice-items', views.InvoiceItemViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

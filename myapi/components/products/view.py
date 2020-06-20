@@ -10,8 +10,10 @@ class ProductViewSet(viewsets.ModelViewSet):
     serializer_class = ProductSerializer
     select_for_includes = {
         'manufacturer': ['manufacturer__name'],
+        'sold_items': ['sold_items__rate']
     }
     prefetch_for_includes = {
         '__all__': [],
         'all_manufacturers': [Prefetch('all_manufacturers', queryset=Vendor.objects.select_related('name'))],
+        'all_sold_items': [Prefetch('all_sold_items', queryset=Vendor.objects.select_related('rate'))],
     }
