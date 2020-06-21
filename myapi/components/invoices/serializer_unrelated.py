@@ -20,4 +20,7 @@ class InvoiceSerializerUnrelated(serializers.HyperlinkedModelSerializer):
                   'buyer_order_date',
                   'despatch_document_number',
                   'delivery_note',
-                  'terms_of_delivery']
+                  'terms_of_delivery',
+                  'created_at',
+                  'updated_at'
+                  ]

@@ -7,4 +7,7 @@ class SessionSerializerUnrelated(serializers.HyperlinkedModelSerializer):
         model = Session
         fields = ['name',
                   'start_date',
-                  'end_date']
+                  'end_date',
+                  'created_at',
+                  'updated_at'
+                  ]

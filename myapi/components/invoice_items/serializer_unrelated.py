@@ -13,4 +13,7 @@ class InvoiceItemSerializerUnrelated(serializers.HyperlinkedModelSerializer):
                   'quantity',
                   'amount',
                   'measuring_unit',
-                  'model_serial_number']
+                  'model_serial_number',
+                  'created_at',
+                  'updated_at'
+                  ]

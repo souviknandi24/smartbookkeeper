@@ -20,4 +20,7 @@ class VendorSerializerUnrelated(serializers.HyperlinkedModelSerializer):
                   'bank_name',
                   'bank_branch_name',
                   'bank_ifs_code',
-                  'entity_type']
+                  'entity_type',
+                  'created_at',
+                  'updated_at'
+                  ]

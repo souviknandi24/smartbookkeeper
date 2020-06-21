@@ -10,4 +10,7 @@ class ProductSerializerUnrelated(serializers.HyperlinkedModelSerializer):
                   'basic_rate',
                   'hsn_sac',
                   'gst_percentage',
-                  'measuring_unit']
+                  'measuring_unit',
+                  'created_at',
+                  'updated_at'
+                  ]

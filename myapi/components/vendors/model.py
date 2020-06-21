@@ -22,5 +22,8 @@ class Vendor(models.Model):
     entity_type = models.CharField(null=False, max_length=20, choices=[(
         'manufacturer', 'MANUFACTURER'), ('buyer', 'BUYER'), ('firm', 'FIRM')], default='buyer')
 
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
     def __str__(self):
         return self.name + ' | ' + self.gstin if self.gstin else self.name

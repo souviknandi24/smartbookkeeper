@@ -16,5 +16,8 @@ class Product(models.Model):
     manufacturer = models.ForeignKey(
         Vendor, related_name='products', null=True, blank=True, default=None, on_delete=models.SET_NULL)
 
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
     def __str__(self):
         return '{} ({})'.format(self.name, self.manufacturer) if self.manufacturer else self.name

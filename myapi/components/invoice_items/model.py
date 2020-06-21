@@ -24,5 +24,8 @@ class InvoiceItem(models.Model):
     invoice = models.ForeignKey(Invoice, related_name='invoice_items',
                                 null=True, blank=True, default=None, on_delete=models.SET_NULL)
 
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
     def __str__(self):
         return '{} '.format(self.product)
