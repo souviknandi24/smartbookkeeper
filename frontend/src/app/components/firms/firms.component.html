@@ -1,0 +1,38 @@
+<div class="container firms-list-container">
+  <h2 class="title">Firms</h2>
+  <hr />
+  <div class="firms-list row justify-content-around">
+    <div class="card firm-card col-lg-5" *ngFor="let firm of pageService?.firmsData">
+      <div class="card-body firm-name">
+        <h3 class="card-title">{{ firm.attributes['name'] }}</h3>
+      </div>
+      <div class="card-body firm-action-buttons">
+        <a [routerLink]="['firms', firm.id, 'invoices']" type="button" class="btn btn-success">Invoices</a>
+        <a href="#" type="button" class="btn btn-warning">Quotations</a>
+        <a href="#" type="button" class="btn btn-primary">Letters</a>
+      </div>
+      <div class="accordion">
+        <div class="card" *ngFor="let attributesMap of attributesToShow | keyvalue">
+          <div class="card-header">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                attr.data-target="#{{attributesMap.key}}" aria-expanded="true"
+                attr.aria-controls="{{attributesMap.key}}">
+                {{ attributesMap.value.sectionName }}
+              </button>
+            </h2>
+          </div>
+          <div id="{{attributesMap.key}}" class="collapse">
+            <div class="card-body">
+              <div class="" *ngFor="let firmAttributes of attributesMap.value.attributes | keyvalue">
+                <b>{{ firmAttributes.key }}:</b>&nbsp;&nbsp;{{ firm.attributes[firmAttributes.value] }}<br />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+      </div>
+    </div>
+  </div>
+</div>

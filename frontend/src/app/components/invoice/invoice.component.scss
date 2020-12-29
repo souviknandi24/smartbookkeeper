@@ -1,0 +1,42 @@
+.invoices-list-container {
+  .title {
+    margin: 30px 0 0 0;
+  }
+
+  .invoices-list {
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  .selected-invoices-list {
+    border-left: 1px solid #ccc;
+  }
+
+  .invoice-details {
+    .invoice-attribute-name {
+      font-style: italic;
+      padding: 5px;
+    }
+
+    .invoice-attribute-value {
+      font-weight: bold;
+      padding: 5px;
+    }
+  }
+
+  .invoice-timestamp {
+    margin-top: 15px;
+  }
+
+  .invoice-action-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // padding: 1.25rem 1.25rem 1.25rem 0.25rem;
+    height: 100%;
+
+    a.btn {
+      margin: 10px;
+    }
+  }
+}

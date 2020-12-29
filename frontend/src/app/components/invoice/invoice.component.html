@@ -1,0 +1,67 @@
+<div class="container invoices-list-container">
+  <h2 class="title">{{selectedFirm?.attributes?.name }}</h2>
+  <h4 class="title">Invoices {{ selectedSessionName ? '(' + selectedSessionName + ')' : '' }}</h4>
+  <hr />
+  <div class="invoices-list row">
+    <div class="col-3">
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link" (click)="onChangeSession(sessionName)"
+          [ngClass]="{'active': selectedSessionName === sessionName}" id="v-pills-{{sessionName}}-tab"
+          data-toggle="pill" href="#v-pills-{{sessionName}}" role="tab" aria-controls="v-pills-home"
+          aria-selected="true" *ngFor="let sessionName of sessionsList">{{sessionName}}</a>
+      </div>
+    </div>
+    <div class="col-9 selected-invoices-list">
+      <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-pane fade"
+          [ngClass]="{'active': selectedSessionName === session.key, 'show': selectedSessionName === session.key}"
+          id="v-pills-{{session.key}}" role="tabpanel" attr.aria-labelledby="v-pills-{{session.key}}-tab"
+          *ngFor="let session of sessionWiseInvoicesList | keyvalue">
+          <div class="card mb-3" *ngFor="let invoice of session.value">
+            <div class="row no-gutters">
+              <div class="col-md-9">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    {{ invoice?.buyer?.attributes?.name }}
+                  </h5>
+                  <h6 class="card-title">
+                    {{ invoice?.buyer?.attributes?.contact_name ? invoice?.buyer?.attributes?.contact_name : ''}}
+                  </h6>
+                  <table class="invoice-details">
+                    <tr>
+                      <td class="invoice-attribute-name">Invoice Number: </td>
+                      <td class="invoice-attribute-value">{{ invoice['invoice_number'] }}</td>
+                    </tr>
+                    <tr>
+                      <td class="invoice-attribute-name">Invoice Date: </td>
+                      <td class="invoice-attribute-value">{{ invoice['invoice_date'] }}</td>
+                    </tr>
+                    <tr>
+                      <td class="invoice-attribute-name">Total Amount: </td>
+                      <td class="invoice-attribute-value">Rs. {{ invoice['total_amount'] }}</td>
+                    </tr>
+                    <tr>
+                      <td class="invoice-attribute-name">Total Tax Amount: </td>
+                      <td class="invoice-attribute-value">Rs. {{ invoice['total_tax_amount'] }}</td>
+                    </tr>
+                  </table>
+                  <p class="card-text invoice-timestamp"><small class="text-muted">Last updated
+                      <b>{{ invoice['updated_at'] }}</b></small>
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card-body invoice-action-buttons">
+                  <a [routerLink]="['']" type="button" class="btn btn-info">View</a>
+                  <a [routerLink]="['']" type="button" class="btn btn-success">Print</a>
+                  <a [routerLink]="['']" type="button" class="btn btn-warning">Edit</a>
+                  <a [routerLink]="['']" type="button" class="btn btn-primary">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

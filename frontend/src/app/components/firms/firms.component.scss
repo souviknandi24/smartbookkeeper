@@ -1,0 +1,47 @@
+.firms-list-container {
+  .title {
+    margin: 30px 0 0;
+  }
+
+  .firms-list {
+    margin: 15px 0;
+
+    .firm-card {
+      margin: 30px 0;
+      box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.2);
+
+      .firm-name {
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 0;
+      }
+
+      .firm-action-buttons {
+        display: flex;
+        justify-content: space-between;
+
+        a.btn {
+          flex: 1;
+        }
+      }
+
+      &:hover {
+        box-shadow: 0 0 10px 6px rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .firms-list-container {
+    .firms-list {
+      .firm-card {
+        .firm-action-buttons {
+          a.btn:not(:first-child):not(:last-child) {
+            margin: 0 20px;
+          }
+        }
+      }
+    }
+  }
+}
